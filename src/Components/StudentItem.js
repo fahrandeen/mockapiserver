@@ -17,7 +17,11 @@ export const StudentItem = (props) => {
         />
       </td>
       <td>
-        <img src="edit.png" className="image-studentItem" alt="edit" />
+        <img src="edit.png" 
+        className="image-studentItem" 
+        alt="edit"
+        onClick={()=>props.handleEditStudentForm(props.id)}
+        />
       </td>
       <td>
         <img src="delete.png" className="image-studentItem" alt="delete" />

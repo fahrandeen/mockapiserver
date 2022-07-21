@@ -9,11 +9,13 @@ import { StudentForm } from "./Components/StudentForm";
 import { addNewStudent, generateId, findById, toggleStudent, updateStudent } from "./library/lib";
 import axios from "axios";
 
+
 const baseURL = "https://5e84ace8a8fdea00164aca94.mockapi.io/students";
 
 class App extends Component {
   state = {
     students: [],
+    editForm: false,
     isLoaded: false,
     error: "",
     studentName: "",
@@ -96,6 +98,37 @@ class App extends Component {
      `${baseURL}/${id}`, toggledStudent)
   }
 
+  handleEditStudentForm = (id) => {
+    const student = findById(this.state.students, id)
+    console.log(student.id)
+    this.setState({
+      id:student.id,
+      studentName: student.studentName,
+      studentAge: student.studentAge,
+      studentStatus: student.studentStatus,
+      editForm: true
+    })
+  }
+
+  handleUpdate = (id) => {
+    console.log(id)
+    const editedStudent = {
+      id:this.state.id,
+      studentName: this.state.studentName,
+      studentAge: this.state.studentAge,
+      studentStatus: this.state.studentStatus,
+    };
+    console.log(editedStudent)
+    const students = updateStudent(this.state.students, editedStudent)
+    this.setState({
+      students: students,
+      editForm: false
+    })
+    axios.put(
+      `${baseURL}/${id}`, editedStudent)
+
+  }
+
   render() {
     const submitHandler =
       this.state.studentName && this.state.studentAge
@@ -112,12 +145,16 @@ class App extends Component {
               studentName={this.state.studentName}
               studentAge={this.state.studentAge}
               studentStatus={this.state.studentStatus}
+              id={this.state.id}
+              editForm={this.state.editForm}
+              handleUpdate={this.handleUpdate}
             />
           </Col>
           <Col>
             <StudentList
               students={this.state.students}
               toggleStudent={this.toggleStudent}
+              handleEditStudentForm={this.handleEditStudentForm}
             />
           </Col>
         </Row>

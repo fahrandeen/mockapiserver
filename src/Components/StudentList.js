@@ -21,6 +21,7 @@ export const StudentList = (props) => {
             {...student}
             key={student.id}
             toggleStudent={props.toggleStudent}
+            handleEditStudentForm={props.handleEditStudentForm}
           />
         ))}
       </tbody>
