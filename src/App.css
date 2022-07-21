@@ -1,0 +1,11 @@
+.table>:not(caption)>*>* {
+  padding: 2px 12px 2px 12px !important;
+}
+.image-studentItem{
+  width: 22px;
+  height: 22px;
+  margin-left: 14px;
+}
+.studentAge{
+  width: 20% !important;
+}
