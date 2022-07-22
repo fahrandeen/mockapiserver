@@ -122,7 +122,10 @@ class App extends Component {
     const students = updateStudent(this.state.students, editedStudent)
     this.setState({
       students: students,
-      editForm: false
+      editForm: false,
+      studentName: "",
+      studentAge: "",
+      studentStatus: "",
     })
     axios.put(
       `${baseURL}/${id}`, editedStudent)
