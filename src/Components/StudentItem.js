@@ -22,7 +22,7 @@ export const StudentItem = (props) => {
         <img
           src={editImage}
           className="image-studentItem"
-          alt="edit"
+          alt="editd"
           onClick={() => props.handleEditStudentForm(props.id)}
         />
       </td>
