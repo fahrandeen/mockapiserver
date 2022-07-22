@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mockapiserver/static/css/main.816d65ee.css",
-    "main.js": "/mockapiserver/static/js/main.18c4dc17.js",
+    "main.js": "/mockapiserver/static/js/main.48d15825.js",
     "static/js/787.ebfe4f99.chunk.js": "/mockapiserver/static/js/787.ebfe4f99.chunk.js",
     "index.html": "/mockapiserver/index.html",
     "main.816d65ee.css.map": "/mockapiserver/static/css/main.816d65ee.css.map",
-    "main.18c4dc17.js.map": "/mockapiserver/static/js/main.18c4dc17.js.map",
+    "main.48d15825.js.map": "/mockapiserver/static/js/main.48d15825.js.map",
     "787.ebfe4f99.chunk.js.map": "/mockapiserver/static/js/787.ebfe4f99.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.816d65ee.css",
-    "static/js/main.18c4dc17.js"
+    "static/js/main.48d15825.js"
   ]
 }
