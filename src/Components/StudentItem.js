@@ -1,5 +1,7 @@
 import React from "react";
 import { partial } from "../library/lib";
+import editImage from "../assets/edit.png";
+// import deleteImage from "../assets/delete.png";
 
 export const StudentItem = (props) => {
   const handletoggle = partial(props.toggleStudent, props.id);
@@ -17,15 +19,19 @@ export const StudentItem = (props) => {
         />
       </td>
       <td>
-        <a href="#" >
-        <img src="edit.png" 
-        className="image-studentItem" 
-        alt="edit"
-        onClick={()=>props.handleEditStudentForm(props.id)}
-        /></a>
+        <img
+          src={editImage}
+          className="image-studentItem"
+          alt="edit"
+          onClick={() => props.handleEditStudentForm(props.id)}
+        />
       </td>
       <td>
-        <img src="delete.png" className="image-studentItem" alt="delete" />
+        <img 
+        src="../assets/delete.png" 
+        className="image-studentItem" 
+        alt="delete" 
+        />
       </td>
     </tr>
   );
