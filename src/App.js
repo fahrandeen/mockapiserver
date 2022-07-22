@@ -9,9 +9,6 @@ import { StudentForm } from "./Components/StudentForm";
 import { addNewStudent, generateId, findById, toggleStudent, updateStudent, removeStudent } from "./library/lib";
 import axios from "axios";
 
-
-const baseURL = "https://5e84ace8a8fdea00164aca94.mockapi.io/students";
-
 class App extends Component {
   state = {
     students: [],
@@ -24,7 +21,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch("https://5e84ace8a8fdea00164aca94.mockapi.io/students")
+    fetch(process.env.REACT_APP_API_KEY)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -43,6 +40,7 @@ class App extends Component {
   }
 
   handleInputChange = (evt) => {
+    console.log(process.env.REACT_APP_API_KEY)
     const target = evt.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -70,8 +68,7 @@ class App extends Component {
       studentAge: "",
       studentStatus: "",
     });
-    axios.post(
-      "https://5e84ace8a8fdea00164aca94.mockapi.io/students",
+    axios.post(process.env.REACT_APP_API_KEY,
       newStudent,
       {
         Accept: "application/json",
@@ -95,7 +92,7 @@ class App extends Component {
       students: updatedStudents
     })
     axios.put(
-     `${baseURL}/${id}`, toggledStudent)
+     `${process.env.REACT_APP_API_KEY}/${id}`, toggledStudent)
   }
 
   handleEditStudentForm = (id) => {
@@ -128,7 +125,7 @@ class App extends Component {
       studentStatus: "",
     })
     axios.put(
-      `${baseURL}/${id}`, editedStudent)
+      `${process.env.REACT_APP_API_KEY}/${id}`, editedStudent)
 
   }
 
@@ -140,7 +137,7 @@ class App extends Component {
       students : students
     })
     axios.delete(
-      `${baseURL}/${id}`
+      `${process.env.REACT_APP_API_KEY}/${id}`
     )
   }
 
