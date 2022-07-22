@@ -1,7 +1,7 @@
 import React from "react";
 import { partial } from "../library/lib";
 import editImage from "../assets/edit.png";
-// import deleteImage from "../assets/delete.png";
+import deleteImage from "../assets/delete.png";
 
 export const StudentItem = (props) => {
   const handletoggle = partial(props.toggleStudent, props.id);
@@ -28,9 +28,10 @@ export const StudentItem = (props) => {
       </td>
       <td>
         <img 
-        src="../assets/delete.png" 
+        src={deleteImage} 
         className="image-studentItem" 
-        alt="delete" 
+        alt="delete"
+        onClick={() => props.handleDeleteStudent(props.id)}
         />
       </td>
     </tr>

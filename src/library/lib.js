@@ -16,3 +16,11 @@ export const updateStudent = (list, student) => {
       ...list.slice(UpdatedIndex+1)
     ]
 }
+
+export const removeStudent = (list, student) => {
+  const removeIndex = list.findIndex(item => item.id === student.id)
+  return[
+    ...list.slice(0, removeIndex),
+    ...list.slice(removeIndex+1)
+  ]
+}

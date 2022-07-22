@@ -11,7 +11,7 @@ export const StudentList = (props) => {
           <th>Name</th>
           <th>Age</th>
           <th>Status</th>
-          <th>e</th>
+          <th>Edit</th>
           <th>Delete</th>
         </tr>
       </thead>
@@ -22,6 +22,7 @@ export const StudentList = (props) => {
             key={student.id}
             toggleStudent={props.toggleStudent}
             handleEditStudentForm={props.handleEditStudentForm}
+            handleDeleteStudent={props.handleDeleteStudent}
           />
         ))}
       </tbody>

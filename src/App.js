@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { StudentList } from "./Components/StudentList";
 import { StudentForm } from "./Components/StudentForm";
-import { addNewStudent, generateId, findById, toggleStudent, updateStudent } from "./library/lib";
+import { addNewStudent, generateId, findById, toggleStudent, updateStudent, removeStudent } from "./library/lib";
 import axios from "axios";
 
 
@@ -129,6 +129,18 @@ class App extends Component {
 
   }
 
+  handleDeleteStudent = (id) => {
+    console.log(id)
+    const student = findById(this.state.students, id)
+    const students = removeStudent(this.state.students, student)
+    this.setState({
+      students : students
+    })
+    axios.delete(
+      `${baseURL}/${id}`
+    )
+  }
+
   render() {
     const submitHandler =
       this.state.studentName && this.state.studentAge
@@ -155,6 +167,7 @@ class App extends Component {
               students={this.state.students}
               toggleStudent={this.toggleStudent}
               handleEditStudentForm={this.handleEditStudentForm}
+              handleDeleteStudent={this.handleDeleteStudent}
             />
           </Col>
         </Row>
