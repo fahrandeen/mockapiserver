@@ -11,7 +11,7 @@ export const StudentList = (props) => {
           <th>Name</th>
           <th>Age</th>
           <th>Status</th>
-          <th>Edit</th>
+          <th>e</th>
           <th>Delete</th>
         </tr>
       </thead>
